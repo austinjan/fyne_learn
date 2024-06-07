@@ -1,4 +1,4 @@
-package main
+package utils
 
 import (
 	"encoding/json"
@@ -51,8 +51,8 @@ func GetNimblFileList() ([]string, error) {
 	return ret, nil
 }
 
-// downloadFile download a file from https://nimbl.blackbeartechhive.com/api/v1/files/{filename}
-func downloadFile(filename string, filepath string) error {
+// DownloadFile download a file from https://nimbl.blackbeartechhive.com/api/v1/files/{filename}
+func DownloadFile(filename string, filepath string) error {
 	// create a file
 	out, err := os.Create(filepath)
 	if err != nil {

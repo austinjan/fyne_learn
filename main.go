@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"fyneLearning/utils"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -55,7 +56,7 @@ func DownloadWidget(nimbls []string, w fyne.Window) *fyne.Container {
 		if selected != "" {
 			dialog.ShowInformation("Downloading", "Downloading file "+selected, w)
 			// download file
-			err := downloadFile(selected, "./nimbl.zip")
+			err := utils.DownloadFile(selected, "./nimbl.zip")
 			if err != nil {
 				dialog.ShowError(err, w)
 			} else {
@@ -94,7 +95,7 @@ func main() {
 	w := a.NewWindow("Nimbl")
 
 	// load files from blackbeartechhive.com
-	nimbls, err := GetNimblFileList()
+	nimbls, err := utils.GetNimblFileList()
 	if err != nil {
 		fyne.LogError("Failed to get nimbl files", err)
 	}
